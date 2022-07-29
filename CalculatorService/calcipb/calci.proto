@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package CalculatorService;
+
+option go_package = "CalculatorService/calcipb";
+
+message SumRequest {
+    int64 num1 = 1;
+    int64 num2 = 2;
+}
+
+message SumResponse {
+    int64 result = 1;
+}
+
+message PrimeRequest {
+    int64 num1 = 1;
+}
+
+message PrimeResponse {
+    int64 result = 1;
+}
+
+message CompAvgRequest {
+    int64 num1 = 1;
+}
+
+message CompAvgResponse {
+    int64 result = 1;
+}
+
+message MaxNumRequest {
+    int64 num1 = 1;
+}
+
+message MaxNumResponse {
+    int64 result = 1;
+}
+
+service CalculatorService {
+    rpc Sum(SumRequest) returns (SumResponse) {};
+    rpc Prime(PrimeRequest) returns (PrimeResponse) {};
+    rpc ComputeAvg(CompAvgRequest) returns (CompAvgResponse) {};
+    rpc MaxNum(MaxNumRequest) returns (MaxNumResponse) {};
+}
