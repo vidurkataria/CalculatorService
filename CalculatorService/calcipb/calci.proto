@@ -26,7 +26,7 @@ message CompAvgRequest {
 }
 
 message CompAvgResponse {
-    int64 result = 1;
+    float result = 1;
 }
 
 message MaxNumRequest {
@@ -39,7 +39,7 @@ message MaxNumResponse {
 
 service CalculatorService {
     rpc Sum(SumRequest) returns (SumResponse) {};
-    rpc Prime(PrimeRequest) returns (PrimeResponse) {};
-    rpc ComputeAvg(CompAvgRequest) returns (CompAvgResponse) {};
-    rpc MaxNum(MaxNumRequest) returns (MaxNumResponse) {};
+    rpc Prime(PrimeRequest) returns (stream PrimeResponse) {};
+    rpc ComputeAvg(stream CompAvgRequest) returns (CompAvgResponse) {};
+    rpc MaxNum(stream MaxNumRequest) returns (stream MaxNumResponse) {};
 }
